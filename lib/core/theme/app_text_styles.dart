@@ -7,7 +7,7 @@ class AppTextStyles {
   static TextStyle boldStyle = GoogleFonts.inter(
       textStyle: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 24.sp,
+          fontSize: 22.sp,
           color: AppColors.whiteColor));
   static TextStyle whiteRegularStyle = GoogleFonts.inter(
       textStyle: TextStyle(
