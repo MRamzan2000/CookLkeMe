@@ -6,6 +6,7 @@ class AppColors {
   // background color
   static Color whiteColor= Color(0xffFFFFFF);
   static Color textFieldBgColor= Color(0xff393532);
+  static Color onboardingWhiteColor= Color(0xffEDEDED);
   static Color textFieldIconColor= Color(0xffC5C6C7);
   static Color bottomBarBgColor= Color(0xff181A20);
   static Color orangeColor= Color(0xFFFF8F1D);

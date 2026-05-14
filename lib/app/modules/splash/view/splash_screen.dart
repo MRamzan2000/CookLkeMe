@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cooklkeme/app/modules/auth/view/login_screen.dart';
+import 'package:cooklkeme/app/modules/onboarding/view/onboarding_screen.dart';
 import 'package:cooklkeme/core/theme/app_colors.dart';
 import 'package:cooklkeme/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void _navigateToNextScreen() {
     _timer = Timer(Duration(seconds: 5), () {
       if (!mounted) return;
-      Get.offAll(() => const LoginScreen());
+      Get.offAll(() => const OnboardingScreen());
     });
   }
 
@@ -58,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               RepaintBoundary(
                 child: Image.asset(
-                  "assets/icons/appicon.png",
+                  "assets/icons/appicon.webp",
                   fit: BoxFit.contain,
                   filterQuality: FilterQuality.low,
                 ),

@@ -9,6 +9,21 @@ class AppTextStyles {
           fontWeight: FontWeight.bold,
           fontSize: 22.sp,
           color: AppColors.whiteColor));
+  static TextStyle onboardingBoldStyle = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18.sp,
+          color: AppColors.whiteColor));
+  static TextStyle textButtonStyle = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 17.sp,
+          color: AppColors.whiteColor));
+  static TextStyle onboardingRegularStyle = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 14.sp,
+          color: AppColors.onboardingWhiteColor));
   static TextStyle whiteRegularStyle = GoogleFonts.inter(
       textStyle: TextStyle(
           fontWeight: FontWeight.w500,
