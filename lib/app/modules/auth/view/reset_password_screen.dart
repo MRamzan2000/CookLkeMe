@@ -1,5 +1,4 @@
 import 'package:cooklkeme/core/theme/app_colors.dart';
-import 'package:cooklkeme/core/theme/app_gradients.dart';
 import 'package:cooklkeme/core/theme/app_text_styles.dart';
 import 'package:cooklkeme/core/widgets/custom_elevated_button.dart';
 import 'package:cooklkeme/core/widgets/custom_text_field.dart';
@@ -8,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,77 +24,34 @@ class SignupScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-
-                getVerticalSpace(height: 6.h),
-
-                /// LOGO
-                RepaintBoundary(
-                  child: SizedBox(
-                    height: 15.h,
-                    width: 250.px,
-                    child: Image.asset(
-                      "assets/icons/appicon.webp",
-                      fit: BoxFit.contain,
-                      filterQuality: FilterQuality.low,
-                    ),
-                  ),
-                ),
-
-                /// APP NAME
-                Text(
-                  "CookLkeMe",
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.boldStyle.copyWith(
-                    fontSize: 20.sp,
-                    foreground: Paint()
-                      ..shader = AppGradients.primaryTextShader,
-                  ),
-                ),
-
                 getVerticalSpace(height: 6.h),
 
                 /// TITLE
                 Text(
-                  "Sign up",
-                  style: AppTextStyles.boldStyle,
+                  "Reset Your Password",
+                  style: AppTextStyles.boldStyle.copyWith(fontSize: 18.sp),
                 ),
 
-                getVerticalSpace(height: 3.h),
+                getVerticalSpace(height: 1.h),
+                Text(
+                  "Enter your email and we'll send you a link to reset your password.",
+                  style: AppTextStyles.onboardingRegularStyle
+                      .copyWith(fontSize: 14.sp, fontWeight: FontWeight.w400),
+                  textAlign: TextAlign.center,
+                ),
+                getVerticalSpace(height: 8.h),
 
                 /// EMAIL FIELD
-                const CustomTextField(
-                  hintText: "Username",
-                  prefixIcon: "assets/icons/username.svg",
-                ),
-                getVerticalSpace(height: 1.5.h),
-
                 const CustomTextField(
                   hintText: "Email",
                   prefixIcon: "assets/icons/email.svg",
                 ),
 
-                getVerticalSpace(height: 1.5.h),
-
-                /// PASSWORD FIELD
-                const CustomTextField(
-                  hintText: "Password",
-                  prefixIcon: "assets/icons/password.svg",
-                  suffixIcon: "assets/icons/visible.svg",
-                ),
-                getVerticalSpace(height: 1.5.h),
-                const CustomTextField(
-                  hintText: "Confirm Password",
-                  prefixIcon: "assets/icons/password.svg",
-                  suffixIcon: "assets/icons/visible.svg",
-                ),
-
-                getVerticalSpace(height: 7.h),
+                getVerticalSpace(height: 4.h),
 
                 /// BUTTON
                 CustomButton(
-                  text: "Sign-up",
+                  text: "Reset",
                   onPressed: () {},
                   width: 180.px,
                   height: 4.h,
@@ -105,14 +61,14 @@ class SignupScreen extends StatelessWidget {
 
                 /// SIGNUP TEXT
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Get.back();
                   },
                   child: Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: "I have a account ",
+                          text: "Back to  ",
                           style: AppTextStyles.whiteRegularStyle,
                         ),
                         TextSpan(

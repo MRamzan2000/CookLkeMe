@@ -1,3 +1,4 @@
+import 'package:cooklkeme/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -40,6 +41,8 @@ class OnboardingController extends GetxController {
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeInOut,
       );
+    }else{
+      Get.offNamed(AppRoutes.login);
     }
   }
 

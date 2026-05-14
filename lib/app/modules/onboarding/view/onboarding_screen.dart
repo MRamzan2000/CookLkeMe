@@ -32,18 +32,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-          () => Scaffold(
+      () => Scaffold(
         body: Stack(
           children: [
-
             /// PAGEVIEW IMAGES
             PageView.builder(
               controller: controller.pageController,
               itemCount: controller.pages.length,
               onPageChanged: controller.changePage,
               itemBuilder: (context, index) {
-                return AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 600),
+                return FadeInDown(
+                  duration: const Duration(milliseconds: 1100),
+                  key: ValueKey(
+                      controller.headings[controller.currentIndex.value]),
                   child: RepaintBoundary(
                     key: ValueKey(controller.currentIndex.value),
                     child: Image.asset(
@@ -66,25 +67,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   const Spacer(),
 
                   /// HEADING ANIMATION
-                  FadeInUp(
+                  FadeInRight(
                     key: ValueKey(
                         controller.headings[controller.currentIndex.value]),
                     duration: const Duration(milliseconds: 700),
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 6.w),
                       child: Text(
-                        controller
-                            .headings[controller.currentIndex.value],
+                        controller.headings[controller.currentIndex.value],
                         textAlign: TextAlign.center,
                         style: AppTextStyles.onboardingBoldStyle,
                       ),
                     ),
                   ),
 
-                  getVerticalSpace(height: .7.h),
-
                   /// DETAILS ANIMATION
-                  FadeInUp(
+                  FadeInLeft(
                     key: ValueKey(
                         controller.details[controller.currentIndex.value]),
                     duration: const Duration(milliseconds: 900),
@@ -100,7 +98,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
 
-                  getVerticalSpace(height: 1.2.h),
+                  getVerticalSpace(height: 1.h),
 
                   /// BOTTOM BAR
                   FadeInUp(
@@ -113,32 +111,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         color: AppColors.bottomBarBgColor,
                       ),
                       child: Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-
                           /// INDICATORS
                           Row(
                             children: List.generate(
                               controller.pages.length,
-                                  (index) => AnimatedContainer(
-                                duration:
-                                const Duration(milliseconds: 300),
-                                margin:
-                                const EdgeInsets.only(right: 6),
-                                width:
-                                controller.currentIndex.value ==
-                                    index
-                                    ? 24
-                                    : 8,
-                                height: 8,
+                              (index) => AnimatedContainer(
+                                duration: const Duration(milliseconds: 300),
+                                margin:  EdgeInsets.only(right: 6.px),
+                                width: controller.currentIndex.value == index
+                                    ? 24.px
+                                    : 8.px,
+                                height: 8.px,
                                 decoration: BoxDecoration(
-                                  color: controller.currentIndex.value ==
-                                      index
+                                  color: controller.currentIndex.value == index
                                       ? AppColors.secondaryColor
                                       : Colors.white,
-                                  borderRadius:
-                                  BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
                             ),
@@ -148,9 +138,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           InkWell(
                             onTap: controller.nextPage,
                             child: Text(
+                              controller.currentIndex.value==2?"Get Started":
                               "Next",
-                              style:
-                              AppTextStyles.textButtonStyle,
+                              style: AppTextStyles.textButtonStyle,
                             ),
                           ),
                         ],

@@ -6,8 +6,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class AppTextStyles {
   static TextStyle boldStyle = GoogleFonts.inter(
       textStyle: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 22.sp,
+          fontWeight: FontWeight.w700,
+          fontSize: 20.sp,
           color: AppColors.whiteColor));
   static TextStyle onboardingBoldStyle = GoogleFonts.inter(
       textStyle: TextStyle(
@@ -18,6 +18,11 @@ class AppTextStyles {
       textStyle: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 17.sp,
+          color: AppColors.whiteColor));
+  static TextStyle buttonStyle = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 15.sp,
           color: AppColors.whiteColor));
   static TextStyle onboardingRegularStyle = GoogleFonts.inter(
       textStyle: TextStyle(
@@ -33,6 +38,6 @@ class AppTextStyles {
   static TextStyle hintStyle = GoogleFonts.inter(
       textStyle: TextStyle(
           fontWeight: FontWeight.w400,
-          fontSize: 12.sp,
+          fontSize: 14.sp,
           color: AppColors.textFieldIconColor));
 }

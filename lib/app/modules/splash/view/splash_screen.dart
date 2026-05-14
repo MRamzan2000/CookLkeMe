@@ -1,12 +1,8 @@
-import 'dart:async';
-
-import 'package:cooklkeme/app/modules/auth/view/login_screen.dart';
-import 'package:cooklkeme/app/modules/onboarding/view/onboarding_screen.dart';
-import 'package:cooklkeme/core/theme/app_colors.dart';
+import 'package:cooklkeme/app/modules/splash/controller/splash_controller.dart';
+import 'package:cooklkeme/core/theme/app_gradients.dart';
 import 'package:cooklkeme/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,38 +13,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  Timer? _timer;
+  late final SplashController controller;
+
   @override
   void initState() {
-    _navigateToNextScreen();
+    controller = Get.put(SplashController());
     super.initState();
-  }
-
-  void _navigateToNextScreen() {
-    _timer = Timer(Duration(seconds: 5), () {
-      if (!mounted) return;
-      Get.offAll(() => const OnboardingScreen());
-    });
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final Shader gradient = LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-      colors: [
-        AppColors.redColor,
-        AppColors.orangeColor,
-      ],
-    ).createShader(
-      const Rect.fromLTWH(0.0, 0.0, 220.0, 70.0),
-    );
     return Scaffold(
       body: Center(
         child: Padding(
@@ -57,12 +31,9 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              RepaintBoundary(
-                child: Image.asset(
-                  "assets/icons/appicon.webp",
-                  fit: BoxFit.contain,
-                  filterQuality: FilterQuality.low,
-                ),
+              Image.asset(
+                "assets/icons/appicon.webp",
+                fit: BoxFit.contain,
               ),
               Text(
                 "CookLkeMe",
@@ -70,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: AppTextStyles.boldStyle.copyWith(
-                  foreground: Paint()..shader = gradient,
+                  foreground: Paint()..shader = AppGradients.primaryTextShader,
                 ),
               ),
             ],

@@ -1,8 +1,9 @@
+import 'package:cooklkeme/app/routes/app_pages.dart';
+import 'package:cooklkeme/app/routes/app_routes.dart';
 import 'package:cooklkeme/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'app/modules/splash/view/splash_screen.dart';
 void main(){
   runApp(MyApp());
 }
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 scaffoldBackgroundColor: AppColors.primaryColor
               ),
-              home: SplashScreen(),
+              initialRoute: AppRoutes.splash,
+              getPages: AppPages.pages,
             )
     );
   }
