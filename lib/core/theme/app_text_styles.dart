@@ -32,7 +32,7 @@ class AppTextStyles {
   static TextStyle whiteRegularStyle = GoogleFonts.inter(
       textStyle: TextStyle(
           fontWeight: FontWeight.w500,
-          fontSize: 14.sp,
+          fontSize: 15.sp,
           color: AppColors.whiteColor));
 
   static TextStyle hintStyle = GoogleFonts.inter(
