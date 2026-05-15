@@ -1,7 +1,7 @@
 import 'package:cooklkeme/app/modules/auth/view/login_screen.dart';
 import 'package:cooklkeme/app/modules/auth/view/reset_password_screen.dart';
 import 'package:cooklkeme/app/modules/auth/view/sign_up_screen.dart';
-import 'package:cooklkeme/app/modules/bottom_nav/custom_bottom_nav_bar.dart';
+import 'package:cooklkeme/app/modules/bottom_nav/view/custom_bottom_nav_bar.dart';
 import 'package:cooklkeme/app/modules/onboarding/view/onboarding_screen.dart';
 import 'package:cooklkeme/app/modules/splash/view/splash_screen.dart';
 import 'package:get/get.dart';

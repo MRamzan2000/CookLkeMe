@@ -3,8 +3,11 @@ import 'package:cooklkeme/app/routes/app_routes.dart';
 import 'package:cooklkeme/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:media_kit/media_kit.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 void main(){
+  WidgetsFlutterBinding.ensureInitialized();
+  MediaKit.ensureInitialized();
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
