@@ -9,6 +9,11 @@ class AppTextStyles {
           fontWeight: FontWeight.w700,
           fontSize: 20.sp,
           color: AppColors.whiteColor));
+  static TextStyle semiBoldStyle = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 14.sp,
+          color: AppColors.whiteColor));
   static TextStyle onboardingBoldStyle = GoogleFonts.inter(
       textStyle: TextStyle(
           fontWeight: FontWeight.bold,
@@ -22,7 +27,7 @@ class AppTextStyles {
   static TextStyle buttonStyle = GoogleFonts.inter(
       textStyle: TextStyle(
           fontWeight: FontWeight.w700,
-          fontSize: 15.sp,
+          fontSize: 13.sp,
           color: AppColors.whiteColor));
   static TextStyle onboardingRegularStyle = GoogleFonts.inter(
       textStyle: TextStyle(
