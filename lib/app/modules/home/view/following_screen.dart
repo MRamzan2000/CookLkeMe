@@ -21,25 +21,25 @@ class FollowingScreen extends StatelessWidget {
             onPageChanged: ctrl.onPageChanged,
             itemBuilder: (context, index) {
               final video = ctrl.getController(index);
-
+    
               if (video == null || !video.value.isInitialized) {
                 return const Center(child: CircularProgressIndicator());
               }
-
+    
               return Stack(
                 fit: StackFit.expand,
                 children: [
                   VideoPlayerWidget(controller: video),
-
+    
                   GestureDetector(
                     onTap: () {
                       video.value.isPlaying ? video.pause() : video.play();
                       ctrl.update();
                     },
                   ),
-
+    
                   VideoActionColumn(),
-
+    
                   UserInfoBar(),
                 ],
               );

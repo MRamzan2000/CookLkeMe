@@ -4,8 +4,10 @@ import 'package:cooklkeme/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-void main(){
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
+
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {

@@ -9,6 +9,16 @@ class AppTextStyles {
           fontWeight: FontWeight.w700,
           fontSize: 20.sp,
           color: AppColors.whiteColor));
+  static TextStyle appBarTitleStyle = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.sp,
+          color: AppColors.whiteColor));
+  static TextStyle addStoryTextStyle = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 13.5.sp,
+          color: AppColors.whiteColor));
   static TextStyle semiBoldStyle = GoogleFonts.inter(
       textStyle: TextStyle(
           fontWeight: FontWeight.w500,

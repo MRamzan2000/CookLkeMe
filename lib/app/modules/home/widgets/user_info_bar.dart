@@ -64,7 +64,7 @@ class UserInfoBar extends StatelessWidget {
               maxLines: 2,
             ),
           ),
-          getVerticalSpace(height: 3.h)
+          getVerticalSpace(height: 15.h)
 
         ],
       ),

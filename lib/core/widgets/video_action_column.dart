@@ -28,7 +28,7 @@ class VideoActionColumn extends StatelessWidget {
                 height: 34.px,
                 width: 34.px,
               )),
-          getVerticalSpace(height: 4.h)
+          getVerticalSpace(height: 15.h)
 
         ],
       ),
