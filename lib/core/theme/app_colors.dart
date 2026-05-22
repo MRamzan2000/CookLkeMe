@@ -3,6 +3,7 @@ class AppColors {
   // primary colors
   static Color primaryColor = Color(0xff111111);
   static Color secondaryColor= Color(0xffF09345);
+  static Color borderColor= Color(0xff171717);
   // background color
   static Color whiteColor= Color(0xffFFFFFF);
   static Color textFieldBgColor= Color(0xff393532);

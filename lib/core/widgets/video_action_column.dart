@@ -24,12 +24,11 @@ class VideoActionColumn extends StatelessWidget {
           SizedBox(
               width: 12.w,
               child: Image.asset(
-                "assets/images/applogo.png",
+                "assets/icons/appicon.webp",
                 height: 34.px,
                 width: 34.px,
               )),
           getVerticalSpace(height: 15.h)
-
         ],
       ),
     );
@@ -43,13 +42,12 @@ class VideoActionColumn extends StatelessWidget {
         child: Column(
           children: [
             SvgPicture.asset(icon, height: 28.px),
-             SizedBox(height: .6.h),
+            SizedBox(height: .6.h),
             Text(label,
-              style: AppTextStyles.whiteRegularStyle
-                  .copyWith(fontSize: 14.sp),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis)
-              ,
+                style:
+                    AppTextStyles.whiteRegularStyle.copyWith(fontSize: 14.sp),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis),
           ],
         ),
       ),

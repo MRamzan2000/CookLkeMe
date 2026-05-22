@@ -1,4 +1,5 @@
 import 'package:cooklkeme/app/modules/bottom_nav/controller/bottom_nav_controller.dart';
+import 'package:cooklkeme/app/modules/post/view/create_post.dart';
 import 'package:cooklkeme/core/theme/app_colors.dart';
 import 'package:cooklkeme/core/theme/app_text_styles.dart';
 import 'package:cooklkeme/core/widgets/custom_nav_clipper.dart';
@@ -18,7 +19,9 @@ class CustomBottomNavScreen extends StatelessWidget {
       extendBody: true,
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.secondaryColor,
-        onPressed: () {},
+        onPressed: () {
+          Get.to(()=>CreatePost());
+        },
         shape: const CircleBorder(),
         child: Icon(
           Icons.add,
@@ -51,13 +54,11 @@ class CustomBottomNavScreen extends StatelessWidget {
                       (index) {
                     final selected =
                         controller.selectedIndex.value == index;
-
                     return Padding(
                       padding: EdgeInsets.only(
                         left: index == 2 ? 20 : 0,
                         right: index == 1 ? 20 : 0,
                       ),
-
                       child: GestureDetector(
                         onTap: () => controller.changeIndex(index),
                         child: Column(
@@ -75,9 +76,7 @@ class CustomBottomNavScreen extends StatelessWidget {
                                 BlendMode.srcIn,
                               ),
                             ),
-
                             getVerticalSpace(height: .5.h),
-
                             Text(
                               controller.bottomBarText[index],
                               style: AppTextStyles.hintStyle.copyWith(
