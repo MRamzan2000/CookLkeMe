@@ -34,9 +34,6 @@ class ExploreController extends GetxController {
 
   final List<String> videos = [
     "assets/videos/intro.mp4",
-    "assets/videos/sample1.mp4",
-    "assets/videos/sample2.mp4",
-    "assets/videos/sample3.mp4",
   ];
 
   void setPlayingIndex(int index) {
