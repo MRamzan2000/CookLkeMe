@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:camerawesome/camerawesome_plugin.dart';
+import 'package:cooklkeme/app/modules/post/view/post_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -26,14 +27,12 @@ class CreatePostController extends GetxController {
     super.onClose();
   }
 
-  // ─── Camera Path ────────────────────────────────────────────────
   Future<String> getVideoPath() async {
     final dir = await getTemporaryDirectory();
     final folder = await Directory('${dir.path}/cooklkeme').create(recursive: true);
     return '${folder.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
   }
 
-  // ─── Recording ──────────────────────────────────────────────────
   void toggleRecording(CameraState state) {
     final videoState = state.when(
       onPreparingCamera: (_) => null,
@@ -76,8 +75,11 @@ class CreatePostController extends GetxController {
   }
 
   void _onVideoPicked(String path) {
-    // TODO: Get.to(() => PostPreviewScreen(videoPath: path));
-  }
+    Get.to(
+          () => PostPreviewScreen(
+        videoPath: path,
+      ),
+    );  }
 
   void onMediaCaptured(MediaCapture event) {
     if (!event.isVideo) return;

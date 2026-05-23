@@ -41,8 +41,6 @@ class CreatePost extends StatelessWidget {
         onMediaCaptureEvent: ctrl.onMediaCaptured,
         bottomActionsBuilder: (state) =>
             CameraBottomBar(state: state, ctrl: ctrl),
-
-
       ),
     );
   }
