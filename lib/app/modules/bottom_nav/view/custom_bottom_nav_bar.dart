@@ -1,7 +1,9 @@
 import 'package:cooklkeme/app/modules/bottom_nav/controller/bottom_nav_controller.dart';
+import 'package:cooklkeme/app/modules/post/view/create_post.dart';
 import 'package:cooklkeme/core/theme/app_colors.dart';
 import 'package:cooklkeme/core/theme/app_text_styles.dart';
 import 'package:cooklkeme/core/widgets/custom_nav_clipper.dart';
+import 'package:cooklkeme/core/widgets/get_vertical_space.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -14,9 +16,12 @@ class CustomBottomNavScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.secondaryColor,
-        onPressed: () {},
+        onPressed: () {
+          Get.to(()=>CreatePost());
+        },
         shape: const CircleBorder(),
         child: Icon(
           Icons.add,
@@ -25,12 +30,11 @@ class CustomBottomNavScreen extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
       bottomNavigationBar: Obx(
             () => BottomAppBar(
-          padding: EdgeInsets.zero,
-          color: Colors.transparent,
-          child: ClipPath(
+                      padding: EdgeInsets.only(bottom: 0),
+                      color: Colors.transparent,
+                      child: ClipPath(
             clipper: CustomNavClipper(),
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 24.px), // SAME
@@ -50,17 +54,13 @@ class CustomBottomNavScreen extends StatelessWidget {
                       (index) {
                     final selected =
                         controller.selectedIndex.value == index;
-
                     return Padding(
-                      // SAME spacing logic (UNCHANGED)
                       padding: EdgeInsets.only(
                         left: index == 2 ? 20 : 0,
                         right: index == 1 ? 20 : 0,
                       ),
-
                       child: GestureDetector(
                         onTap: () => controller.changeIndex(index),
-
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,9 +76,7 @@ class CustomBottomNavScreen extends StatelessWidget {
                                 BlendMode.srcIn,
                               ),
                             ),
-
-                            SizedBox(height: .5.h),
-
+                            getVerticalSpace(height: .5.h),
                             Text(
                               controller.bottomBarText[index],
                               style: AppTextStyles.hintStyle.copyWith(
@@ -95,8 +93,8 @@ class CustomBottomNavScreen extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ),
+                      ),
+                    ),
       ),
       body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );

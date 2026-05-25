@@ -66,5 +66,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+    <string>App needs camera access to record video</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>App needs microphone access to record video</string>
 </dict>
 </plist>

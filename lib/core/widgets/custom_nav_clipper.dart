@@ -10,18 +10,18 @@ class CustomNavClipper extends CustomClipper<Path> {
     path.lineTo(center - 70, 0);
 
     path.quadraticBezierTo(
-      center - 35, 0,
-      center - 25, 20,
+      center - 36, 0,
+      center - 24, 23,
     );
 
     path.arcToPoint(
-      Offset(center + 25, 20),
-      radius: const Radius.circular(40),
+      Offset(center + 27, 22),
+      radius: const Radius.circular(32),
       clockwise: false,
     );
 
     path.quadraticBezierTo(
-      center + 35, 0,
+      center + 36, 0,
       center + 70, 0,
     );
 
@@ -34,5 +34,5 @@ class CustomNavClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
