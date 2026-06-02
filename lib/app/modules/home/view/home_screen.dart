@@ -20,43 +20,57 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.transparent,
-          title: Row(
+          body: Stack(
+        children: [
+          TabBarView(children: [
+            MapScreen(),
+            FollowingScreen(),
+            ForYouScreen(),
+          ]),
+          Column(
             children: [
-              Expanded(
-                  child: SizedBox(
-                    height: 36,
-                    child: TabBar(
-                      indicatorWeight: 1.0,
-                      labelPadding:EdgeInsets.zero ,
-                        padding: EdgeInsets.zero,
-                        indicatorPadding: EdgeInsets.zero,
-                        unselectedLabelStyle: AppTextStyles.hintStyle,
-                        indicatorSize: TabBarIndicatorSize.tab,
-                        tabAlignment: TabAlignment.fill,
-                        dividerColor: Colors.transparent,
-                        automaticIndicatorColorAdjustment: true,
-                        labelStyle: AppTextStyles.whiteRegularStyle,
-                        indicatorColor: AppColors.whiteColor,
-                        tabs: [
-                      Tab(text: "Map"),
-                      Tab(text: "Following"),
-                      Tab(text: "For You"),
-                    ]),
-                  )),
-              getHorizontalSpace(width: 10.w,),
-              Icon(Icons.search_rounded,size: 25.px,color: AppColors.whiteColor,)
+              Container(
+                padding: EdgeInsets.only(top: 4.5.h, bottom: 1.h),
+                color: AppColors.bottomBarBgColor,
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: SizedBox(
+                      height: 36,
+                      child: TabBar(
+                          indicatorWeight: 1.0,
+                          labelPadding: EdgeInsets.zero,
+                          padding: EdgeInsets.zero,
+                          indicatorPadding: EdgeInsets.zero,
+                          unselectedLabelStyle: AppTextStyles.hintStyle,
+                          indicatorSize: TabBarIndicatorSize.tab,
+                          tabAlignment: TabAlignment.fill,
+                          dividerColor: Colors.transparent,
+                          automaticIndicatorColorAdjustment: true,
+                          labelStyle: AppTextStyles.whiteRegularStyle,
+                          indicatorColor: AppColors.whiteColor,
+                          tabs: [
+                            Tab(text: "Map"),
+                            Tab(text: "Following"),
+                            Tab(text: "For You"),
+                          ]),
+                    )),
+                    getHorizontalSpace(
+                      width: 10.w,
+                    ),
+                    Icon(
+                      Icons.search_rounded,
+                      size: 25.px,
+                      color: AppColors.whiteColor,
+                    ),
+                    getHorizontalSpace(width: 5.w)
+                  ],
+                ),
+              ),
             ],
           ),
-        ),
-        body: TabBarView(children: [
-          MapScreen(),
-          FollowingScreen(),
-          ForYouScreen(),
-        ])
-      ),
+        ],
+      )),
     );
   }
 }

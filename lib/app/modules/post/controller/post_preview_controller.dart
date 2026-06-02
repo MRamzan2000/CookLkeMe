@@ -118,12 +118,14 @@ class PostPreviewController extends GetxController
     _positionTimer = null;
   }
 
-  Future<void> togglePlayPause() async {
+  Future<void> togglePlayPause(bool isPlay) async {
     if (!videoController.value.isInitialized) return;
     if (videoController.value.isPlaying) {
       await videoController.pause();
     } else {
-      await videoController.play();
+      if(isPlay){
+        await videoController.play();
+      }
     }
   }
 

@@ -121,19 +121,21 @@ class PostPreviewToolbar extends StatelessWidget {
             // Rotate Left
             _ToolBtn(
               svgAsset: 'assets/icons/rotate_left.svg',
-              label: 'Rotate',
+              label: 'Left',
               onTap: ctrl.rotateLeft,
             ),
 
             // Rotate Right
             _ToolBtn(
               svgAsset: 'assets/icons/rotate_right.svg',
-              label: 'Rotate',
+              label: 'Right',
               onTap: ctrl.rotateRight,
             ),
 
             Obx(() => GestureDetector(
-              onTap: ctrl.togglePlayPause,
+              onTap: (){
+                ctrl.togglePlayPause(true);
+              },
               child: Container(
                 width: 52.px,
                 height: 52.px,
