@@ -1,6 +1,10 @@
 import 'package:cooklkeme/app/modules/home/services/video_manager_service.dart';
+import 'package:cooklkeme/app/modules/home/widgets/comments_bottom_sheet.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
+
+import 'comments_controller.dart';
 
 class FeedController extends GetxController {
   final VideoManagerService manager = Get.put(VideoManagerService());
@@ -54,5 +58,14 @@ class FeedController extends GetxController {
 
   VideoPlayerController? getController(int index) {
     return manager.get(videos[index]);
+  }
+
+  void showComments() {
+    Get.put(CommentsController());
+    Get.bottomSheet(
+      CommentsBottomSheet(),
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+    );
   }
 }

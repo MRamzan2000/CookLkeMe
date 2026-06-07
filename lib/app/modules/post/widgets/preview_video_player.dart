@@ -31,7 +31,9 @@ class PreviewVideoPlayer extends StatelessWidget {
       final isVertical = videoSize.height > videoSize.width;
 
       return GestureDetector(
-        onTap: ctrl.togglePlayPause,
+        onTap: (){
+          ctrl.togglePlayPause(true);
+        },
         child: Stack(
           alignment: Alignment.center,
           children: [

@@ -1,6 +1,6 @@
 import 'package:cooklkeme/app/modules/home/controller/feed_controller.dart';
 import 'package:cooklkeme/app/modules/home/widgets/user_info_bar.dart';
-import 'package:cooklkeme/core/widgets/video_action_column.dart';
+import 'package:cooklkeme/app/modules/home/widgets/video_action_column.dart';
 import 'package:cooklkeme/core/widgets/video_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

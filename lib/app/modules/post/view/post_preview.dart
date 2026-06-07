@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PostPreviewScreen extends StatefulWidget {
+
   final String videoPath;
 
   const PostPreviewScreen({super.key, required this.videoPath});
@@ -55,7 +56,8 @@ class _PostPreviewScreenState extends State<PostPreviewScreen> {
           // Next
           GestureDetector(
             onTap: () {
-              Get.to(() => PublishPost());
+              ctrl.togglePlayPause(false);
+              Get.to(() => PublishPost(tag: widget.videoPath ,));
             },
             child: Text(
               'Next',
