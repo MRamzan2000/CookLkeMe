@@ -13,30 +13,31 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PostPreviewScreen extends StatefulWidget {
 
-  final String videoPath;
 
-  const PostPreviewScreen({super.key, required this.videoPath});
+  const PostPreviewScreen({super.key,});
 
   @override
   State<PostPreviewScreen> createState() => _PostPreviewScreenState();
 }
 
 class _PostPreviewScreenState extends State<PostPreviewScreen> {
+   String videoPath = Get.arguments ?? '';
+
   late final PostPreviewController ctrl;
 
   @override
   void initState() {
     super.initState();
     ctrl = Get.put(
-      PostPreviewController(videoPath: widget.videoPath),
-      tag: widget.videoPath,
+      PostPreviewController(videoPath: videoPath),
+      tag: videoPath,
     );
   }
 
   @override
   void dispose() {
-    if (Get.isRegistered<PostPreviewController>(tag: widget.videoPath)) {
-      Get.delete<PostPreviewController>(tag: widget.videoPath);
+    if (Get.isRegistered<PostPreviewController>(tag: videoPath)) {
+      Get.delete<PostPreviewController>(tag: videoPath);
     }
     super.dispose();
   }
@@ -57,7 +58,7 @@ class _PostPreviewScreenState extends State<PostPreviewScreen> {
           GestureDetector(
             onTap: () {
               ctrl.togglePlayPause(false);
-              Get.to(() => PublishPost(tag: widget.videoPath ,));
+              Get.to(() => PublishPost(tag: videoPath ,));
             },
             child: Text(
               'Next',
@@ -86,7 +87,7 @@ class _PostPreviewScreenState extends State<PostPreviewScreen> {
             children: [
               _buildTopBar(),
               Expanded(
-                child: PreviewVideoPlayer(tag: widget.videoPath),
+                child: PreviewVideoPlayer(tag: videoPath),
               ),
 
               getVerticalSpace(height: 12.px),
@@ -96,10 +97,10 @@ class _PostPreviewScreenState extends State<PostPreviewScreen> {
                 }
                 return Padding(
                   padding: EdgeInsets.only(bottom: 14.px),
-                  child: VideoTrimmerWidget(tag: widget.videoPath),
+                  child: VideoTrimmerWidget(tag: videoPath),
                 );
               }),
-              PostPreviewToolbar(tag: widget.videoPath),
+              PostPreviewToolbar(tag: videoPath),
               getVerticalSpace(height: 16.px),
             ],
           ),

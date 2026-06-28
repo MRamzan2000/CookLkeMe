@@ -6,4 +6,6 @@ class AppRoutes {
   static const resetPassword = "/reset-password";
   static const home = "/home";
   static const customBottomNavScreen = "/customBottomNavScreen";
+  static const createPost = "/createPost";
+  static const postPreviewScreen = "/postPreviewScreen";
 }

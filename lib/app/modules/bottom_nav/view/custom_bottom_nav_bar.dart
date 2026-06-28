@@ -1,5 +1,5 @@
 import 'package:cooklkeme/app/modules/bottom_nav/controller/bottom_nav_controller.dart';
-import 'package:cooklkeme/app/modules/post/view/create_post.dart';
+import 'package:cooklkeme/app/routes/app_routes.dart';
 import 'package:cooklkeme/core/theme/app_colors.dart';
 import 'package:cooklkeme/core/theme/app_text_styles.dart';
 import 'package:cooklkeme/core/widgets/custom_nav_clipper.dart';
@@ -20,7 +20,7 @@ class CustomBottomNavScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.secondaryColor,
         onPressed: () {
-          Get.to(()=>CreatePost());
+          Get.toNamed(AppRoutes.createPost);
         },
         shape: const CircleBorder(),
         child: Icon(

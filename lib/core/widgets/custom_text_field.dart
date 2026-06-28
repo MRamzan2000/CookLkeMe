@@ -24,6 +24,7 @@ class CustomTextField extends StatelessWidget {
   final int? maxLines;
 
   final VoidCallback? onTap;
+  final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
 
   final EdgeInsetsGeometry? contentPadding;
@@ -80,14 +81,14 @@ class CustomTextField extends StatelessWidget {
 
     this.enabledBorderColor,
     this.focusedBorderColor,
-    this.errorBorderColor,
+    this.errorBorderColor, this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     final radius = borderRadius ?? 36.px;
 
-    return TextField(
+    return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
@@ -98,11 +99,13 @@ class CustomTextField extends StatelessWidget {
       autofocus: autofocus,
       onTap: onTap,
       onChanged: onChanged,
+      validator:validator ,
       maxLines: maxLines,
       cursorColor: cursorColor ?? AppColors.secondaryColor,
       style: textStyle ?? AppTextStyles.onboardingRegularStyle,
       decoration: InputDecoration(
         isCollapsed: true,
+
         filled: true,
         fillColor: fillColor ?? AppColors.textFieldBgColor,
 

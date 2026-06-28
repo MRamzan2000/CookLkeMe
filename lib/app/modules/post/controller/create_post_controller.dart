@@ -76,9 +76,7 @@ class CreatePostController extends GetxController {
 
   void _onVideoPicked(String path) {
     Get.to(
-          () => PostPreviewScreen(
-        videoPath: path,
-      ),
+          () => PostPreviewScreen(),
     );  }
 
   void onMediaCaptured(MediaCapture event) {

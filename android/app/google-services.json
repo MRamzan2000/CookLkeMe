@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "153409870169",
+    "project_id": "cooklkeme-4da45",
+    "storage_bucket": "cooklkeme-4da45.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153409870169:android:484a8ca01253f0a14f5448",
+        "android_client_info": {
+          "package_name": "com.cooklkeme.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChEAAw2PVRDp8d_iwYx9C2pQPsui4UAMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
