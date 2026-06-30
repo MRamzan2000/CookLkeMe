@@ -8,4 +8,5 @@ class AppRoutes {
   static const customBottomNavScreen = "/customBottomNavScreen";
   static const createPost = "/createPost";
   static const postPreviewScreen = "/postPreviewScreen";
+  static const emailVerificationScreen = "/emailVerificationScreen";
 }

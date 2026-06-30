@@ -120,19 +120,16 @@ class _SignupScreenState extends State<SignupScreen> {
                   getVerticalSpace(height: 7.h),
 
                   /// BUTTON
-                  CustomButton(
-                    text: "Sign-up",
-                    isLoading: false,
-                    onPressed: () {
-                      if(signUpController.signupFormKey.currentState!.validate()){
-
-
-                      }else{
-
-                      }
-                    },
-                    width: 180.px,
-                    height: 4.h,
+                  Obx(
+                    ()=> CustomButton(
+                      text: "Sign-up",
+                      isLoading: signUpController.isLoading.value,
+                      onPressed: () {
+                     signUpController.createUser();
+                      },
+                      width: 180.px,
+                      height: 4.h,
+                    ),
                   ),
 
                   getVerticalSpace(height: 2.h),

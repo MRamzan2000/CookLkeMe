@@ -1,5 +1,6 @@
+import 'package:cooklkeme/app/modules/auth/services/auth_services.dart';
+import 'package:cooklkeme/app/routes/app_routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,26 +16,52 @@ class AuthController extends GetxController {
   final confirmPasswordController = TextEditingController();
 
   //instances
-  final auth = FirebaseAuth.instance;
-
+  final AuthService _authService = AuthService();
   //SignUp User With Email & Password
-  Future<void> createUser({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> createUser() async {
     try {
-      final credentials =
-          auth.createUserWithEmailAndPassword(email: email, password: password);
+      if (!signupFormKey.currentState!.validate()) return;
+      isLoading.value = true;
+      await _authService.createUser(email: emailController.text.trim(), password: passwordController.text.trim());
+      await _authService.sendVerificationEmail();
+      await _authService.signOut();
+      Get.toNamed(AppRoutes.emailVerificationScreen);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        if (kDebugMode) {
-          print('No user found for that email.');
-        } else if (e.code == 'wrong-password') {
-          if (kDebugMode) {
-            print('Wrong password provided for that user.');
-          }
-        }
-      }
+      Get.snackbar(
+        "Signup Failed",
+        _firebaseError(e.code),
+      );
+      isLoading.value = false;
+    } catch (e) {
+      Get.snackbar(
+        "Error",
+        "Something went wrong.",
+      );
+      isLoading.value = false;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  String _firebaseError(String code) {
+    switch (code) {
+      case 'email-already-in-use':
+        return "Email already registered.";
+
+      // case 'invalid-email':
+      //   return "Invalid email address.";
+      //
+      // case 'weak-password':
+      //   return "Password is too weak.";
+
+      case 'network-request-failed':
+        return "Please connect your internet.";
+
+      case 'too-many-requests':
+        return "Too many attempts. Try later.";
+
+      default:
+        return "Authentication failed.";
     }
   }
 }
